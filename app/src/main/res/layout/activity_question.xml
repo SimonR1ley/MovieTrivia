@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuestionActivity"
+    android:background="@drawable/question">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="70dp"
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="300dp"
+            android:layout_height="500dp"
+            android:layout_marginTop="125dp"
+            app:cardCornerRadius="15dp"
+            android:backgroundTint="@color/cards">
+
+
+            <ImageView
+                android:id="@+id/iv_question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/home_alone"
+                android:layout_marginTop="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginTop="140dp">
+
+                <Button
+                    android:id="@+id/btn_guess_one"
+                    android:layout_width="170dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="5dp"
+                    app:cornerRadius="10dp"
+                    android:text="Guess"
+                    android:backgroundTint="@color/guess_button"
+                    android:layout_gravity="center"/>
+
+                <Button
+                    android:id="@+id/btn_guess_two"
+                    android:layout_width="170dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="5dp"
+                    app:cornerRadius="10dp"
+                    android:text="Guess"
+                    android:backgroundTint="@color/guess_button"
+                    android:layout_gravity="center"/>
+
+                <Button
+                    android:id="@+id/btn_guess_three"
+                    android:layout_width="170dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="5dp"
+                    app:cornerRadius="10dp"
+                    android:text="Guess"
+                    android:backgroundTint="@color/guess_button"
+                    android:layout_gravity="center"/>
+
+                <Button
+                    android:id="@+id/btn_guess_four"
+                    android:layout_width="170dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="5dp"
+                    app:cornerRadius="10dp"
+                    android:text="Guess"
+                    android:backgroundTint="@color/guess_button"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
