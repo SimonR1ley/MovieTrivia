@@ -17,6 +17,7 @@ android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center"
         >
 
         <Button
@@ -24,10 +25,11 @@ android:orientation="vertical"
             android:layout_width="110dp"
             android:layout_height="50dp"
             android:layout_marginBottom="20dp"
-            android:layout_marginLeft="150dp"
+            android:layout_marginLeft="80dp"
             android:layout_marginTop="30dp"
             android:text="Return"
-            android:backgroundTint="@color/button"/>
+            android:backgroundTint="@color/button"
+            android:gravity="center"/>
 
 
         <ImageButton
@@ -35,11 +37,11 @@ android:orientation="vertical"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginBottom="20dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="30dp"
             android:text=" "
             android:backgroundTint="@color/white"
-            android:background="@drawable/ic_info"/>
+            android:background="@drawable/ic_info" />
 
     </LinearLayout>
 
@@ -106,6 +108,7 @@ android:orientation="vertical"
                 />
 
             <TextView
+                android:id="@+id/tv_disney_highscore"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0"
@@ -135,6 +138,7 @@ android:orientation="vertical"
                 />
 
             <TextView
+                android:id="@+id/tv_hero_highscore"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0"
@@ -165,6 +169,7 @@ android:orientation="vertical"
                 />
 
             <TextView
+                android:id="@+id/tv_horror_highscore"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="0"

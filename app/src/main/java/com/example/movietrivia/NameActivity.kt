@@ -37,20 +37,20 @@ class NameActivity : AppCompatActivity() {
 //            Check if username input is empty
 
 
-            if(user.toString() !== ""){
-
-                val intent = Intent(this, HomeActivity::class.java)
-
-                intent.putExtra("username", user.toString())
-
-                startActivity(intent)
-
-                editor.apply{
-                    putString(Constants.USERNAME, username.toString())
-                    apply() //to end
-                }
-
-            }
+//            if(user.toString() !== ""){
+//
+//                val intent = Intent(this, HomeActivity::class.java)
+//
+//                intent.putExtra("username", user.toString())
+//
+//                startActivity(intent)
+//
+//                editor.apply{
+//                    putString(Constants.USERNAME, username.toString())
+//                    apply() //to end
+//                }
+//
+//            }
 
 
 
@@ -66,18 +66,20 @@ class NameActivity : AppCompatActivity() {
 
         }else{
 //                    Navigate to Next Activity (Context from where this intent happens, new Activity)
-            Log.i("Clicked", "$username")
+//            Log.i("Clicked", "$username")
 
             val intent = Intent(this, HomeActivity::class.java)
 
             intent.putExtra("username", username.toString())
 
-            startActivity(intent)
-
             editor.apply{
                 putString(Constants.USERNAME, username.toString())
                 apply() //to end
             }
+
+            startActivity(intent)
+
+
 
         }
 

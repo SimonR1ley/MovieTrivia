@@ -14,6 +14,9 @@
         android:theme="@style/Theme.MovieTrivia"
         tools:targetApi="31">
         <activity
+            android:name=".AboutActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoadingActivity"
             android:exported="true">
             <intent-filter>
@@ -27,7 +30,7 @@
             android:exported="false" />
         <activity
             android:name=".NameActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".ScoreActivity"
             android:exported="false" />

@@ -5,7 +5,13 @@ import com.example.movietrivia.R
 object Constants {
 
     val USERNAME: String = "username"
-    val HIGHSCORE: String = "high_score"
+//    val HIGHSCORE: String = "high_score"
+
+    val DISNEYHIGHSCORE: String = "disney_high_score"
+    val HEROHIGHSCORE: String = "hero_high_score"
+    val HORRORHIGHSCORE: String = "horror_high_score"
+
+
 
     //    This function returns all questions
     fun getAllDisneyQuestions() : ArrayList<Question> {
