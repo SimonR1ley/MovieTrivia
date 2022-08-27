@@ -12,4 +12,7 @@
     <color name="guess_button">#2B2B2B</color>
     <color name="cards">#D9D9D9</color>
     <color name="setting_btn">#F04937</color>
+
+    <color name="red">#F04937</color>
+    <color name="green">#2B2B2B</color>
 </resources>

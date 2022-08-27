@@ -2,13 +2,17 @@ package com.example.movietrivia
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
+import androidx.cardview.widget.CardView
 import com.example.movietrivia.databinding.ActivityQuestionBinding
 import com.example.movietrivia.models.Constants
 import com.example.movietrivia.models.Constants.getAllDisneyQuestions
-import com.example.movietrivia.models.Constants.getAllQuoteQuestions
+import com.example.movietrivia.models.Constants.getAllHeroQuestions
+import com.example.movietrivia.models.Constants.getAllHorrorQuestions
 import com.example.movietrivia.models.Question
 
 class QuestionActivity : AppCompatActivity() {
@@ -24,6 +28,10 @@ class QuestionActivity : AppCompatActivity() {
 
         val username = intent.getStringExtra("username").toString()
 
+
+
+
+
 //        Get the question number from previous activity
 
 //        Call for all my questions
@@ -35,6 +43,8 @@ class QuestionActivity : AppCompatActivity() {
 
 
         var questionNumber = intent.getIntExtra("questionNumber", 0)
+
+        binding.tvQuestionNumber.text = "Question ${questionNumber + 1}"
 
         var score = intent.getIntExtra("score", 0)
 
@@ -48,15 +58,19 @@ class QuestionActivity : AppCompatActivity() {
             "disney" -> {
                 questions = getAllDisneyQuestions()
             }
-            "quotes" -> {
-                questions = getAllQuoteQuestions()
+            "hero" -> {
+                questions = getAllHeroQuestions()
+            }
+
+            "horror" -> {
+                questions = getAllHorrorQuestions()
             }
         }
 
 
         val currentQuestion = questions[questionNumber]
 
-        updateUI(currentQuestion)
+        updateUI(currentQuestion, username)
 
 
 
@@ -66,33 +80,52 @@ class QuestionActivity : AppCompatActivity() {
 
 
 
-            if(questionNumber + 1 == questions.size){
-                val intent = Intent(this, ScoreActivity::class.java)
-                intent.putExtra("score", score)
-                startActivity(intent)
-                finish()
-            }
+//            if(questionNumber + 1 == questions.size){
+//                val intent = Intent(this, ScoreActivity::class.java)
+//                intent.putExtra("score", score)
+//                intent.putExtra("username", user.toString())
+//                startActivity(intent)
+//                finish()
+//            }
 
             val intent = Intent(this, QuestionActivity::class.java)
+            binding.tvQuestionNumber.text = questionNumber.toString()
+
             if (binding.btnGuessOne.text == currentQuestion.answer){
                 intent.putExtra("score", score + 1)
+                binding.mvBackground.setCardBackgroundColor(Color.GREEN);
             } else {
                 intent.putExtra("score", score )
+                binding.mvBackground.setCardBackgroundColor(Color.RED);
             }
+
+
+
             intent.putExtra("category", selectedCategory)
             intent.putExtra("questionNumber", questionNumber + 1)
 
-            startActivity(intent)
-            finish()
+            Handler().postDelayed({
+
+                startActivity(intent)
+                finish()
+            }, 500)
+
+
 
 
             if(questionNumber == questions.count() -1){
                 val intent = Intent(this, ScoreActivity::class.java)
 
                 intent.putExtra("score", score )
-                intent.putExtra("username", username )
+                intent.putExtra("username", user.toString())
 
-                if (score > highScore) {
+                if(score > highScore && binding.btnGuessOne.text == currentQuestion.answer){
+                    editor.apply{
+                        putString(Constants.USERNAME, username)
+                        putInt(Constants.HIGHSCORE, score)
+                        apply() //to end
+                    }
+                } else if (score > highScore) {
                     editor.apply{
                         putString(Constants.USERNAME, username)
                         putInt(Constants.HIGHSCORE, score)
@@ -100,7 +133,6 @@ class QuestionActivity : AppCompatActivity() {
                     }
                 }
 
-                intent.putExtra("username", username)
                 startActivity(intent)
                 finish()
 
@@ -112,31 +144,46 @@ class QuestionActivity : AppCompatActivity() {
         //Option Two
         binding.btnGuessTwo.setOnClickListener{
 
-            if(questionNumber + 1 == questions.size){
-                val intent = Intent(this, ScoreActivity::class.java)
-                intent.putExtra("score", score)
-                startActivity(intent)
-                finish()
-            }
+//            if(questionNumber + 1 == questions.size){
+//                val intent = Intent(this, ScoreActivity::class.java)
+//                intent.putExtra("score", score)
+//                intent.putExtra("username", user.toString())
+//                startActivity(intent)
+//                finish()
+//            }
 
 
             val intent = Intent(this, QuestionActivity::class.java)
+            binding.tvQuestionNumber.text = questionNumber.toString()
             if (binding.btnGuessTwo.text == currentQuestion.answer){
                 intent.putExtra("score", score + 1)
+                binding.mvBackground.setCardBackgroundColor(Color.GREEN);
             } else {
                 intent.putExtra("score", score )
+                binding.mvBackground.setCardBackgroundColor(Color.RED);
             }
             intent.putExtra("category", selectedCategory)
             intent.putExtra("questionNumber", questionNumber + 1)
 
-            startActivity(intent)
-            finish()
+            Handler().postDelayed({
+                startActivity(intent)
+                finish()
+            }, 500)
 
 
 
             if(questionNumber == questions.count() -1){
                 val intent = Intent(this, ScoreActivity::class.java)
-                if (score > highScore) {
+                intent.putExtra("score", score)
+                intent.putExtra("username", user.toString())
+
+                if(score > highScore && binding.btnGuessOne.text == currentQuestion.answer){
+                    editor.apply{
+                        putString(Constants.USERNAME, username)
+                        putInt(Constants.HIGHSCORE, score)
+                        apply() //to end
+                    }
+                } else if (score > highScore) {
                     editor.apply{
                         putString(Constants.USERNAME, username)
                         putInt(Constants.HIGHSCORE, score)
@@ -144,15 +191,10 @@ class QuestionActivity : AppCompatActivity() {
                     }
                 }
 
-                intent.putExtra("username", username)
                 startActivity(intent)
                 finish()
 
             }
-
-
-
-
         }
 
 
@@ -160,31 +202,46 @@ class QuestionActivity : AppCompatActivity() {
         binding.btnGuessThree.setOnClickListener{
 
 
-            if(questionNumber + 1 == questions.size){
-                val intent = Intent(this, ScoreActivity::class.java)
-                intent.putExtra("score", score)
-                startActivity(intent)
-                finish()
-            }
+//            if(questionNumber + 1 == questions.size){
+//                val intent = Intent(this, ScoreActivity::class.java)
+//                intent.putExtra("score", score)
+//                intent.putExtra("username", user.toString())
+//                startActivity(intent)
+//                finish()
+//            }
 
 
             val intent = Intent(this, QuestionActivity::class.java)
+            binding.tvQuestionNumber.text = questionNumber.toString()
             if (binding.btnGuessThree.text == currentQuestion.answer){
                 intent.putExtra("score", score + 1)
+                binding.mvBackground.setCardBackgroundColor(Color.GREEN);
             } else {
                 intent.putExtra("score", score )
+                binding.mvBackground.setCardBackgroundColor(Color.RED);
             }
             intent.putExtra("category", selectedCategory)
             intent.putExtra("questionNumber", questionNumber + 1)
 
-            startActivity(intent)
-            finish()
+            Handler().postDelayed({
+                startActivity(intent)
+                finish()
+            }, 500)
 
 
 
             if(questionNumber == questions.count() -1){
                 val intent = Intent(this, ScoreActivity::class.java)
-                if (score > highScore) {
+                intent.putExtra("score", score)
+                intent.putExtra("username", user.toString())
+
+                if(score > highScore && binding.btnGuessOne.text == currentQuestion.answer){
+                    editor.apply{
+                        putString(Constants.USERNAME, username)
+                        putInt(Constants.HIGHSCORE, score)
+                        apply() //to end
+                    }
+                } else if (score > highScore) {
                     editor.apply{
                         putString(Constants.USERNAME, username)
                         putInt(Constants.HIGHSCORE, score)
@@ -192,7 +249,6 @@ class QuestionActivity : AppCompatActivity() {
                     }
                 }
 
-                intent.putExtra("username", username)
                 startActivity(intent)
                 finish()
 
@@ -205,31 +261,47 @@ class QuestionActivity : AppCompatActivity() {
         binding.btnGuessFour.setOnClickListener{
 
 
-            if(questionNumber + 1 == questions.size){
-                val intent = Intent(this, ScoreActivity::class.java)
-                intent.putExtra("score", score)
-                startActivity(intent)
-                finish()
-            }
+//            if(questionNumber + 1 == questions.size){
+//                val intent = Intent(this, ScoreActivity::class.java)
+//                intent.putExtra("score", score)
+//                intent.putExtra("username", user.toString())
+//                startActivity(intent)
+//                finish()
+//            }
 
             val intent = Intent(this, QuestionActivity::class.java)
+            binding.tvQuestionNumber.text = questionNumber.toString()
             intent.putExtra("category", selectedCategory)
             if (binding.btnGuessFour.text == currentQuestion.answer){
                 intent.putExtra("score", score + 1)
+                binding.mvBackground.setCardBackgroundColor(Color.GREEN);
             } else {
                 intent.putExtra("score", score )
+                binding.mvBackground.setCardBackgroundColor(Color.RED);
             }
             intent.putExtra("questionNumber", questionNumber + 1)
 
-            startActivity(intent)
-            finish()
+            Handler().postDelayed({
+                startActivity(intent)
+                finish()
+            }, 500)
 
 
 
 
             if(questionNumber == questions.count() -1){
+                Log.i("Score", "${score}")
                 val intent = Intent(this, ScoreActivity::class.java)
-                if (score > highScore) {
+                intent.putExtra("score", score)
+                intent.putExtra("username", user.toString())
+
+                if(score > highScore && binding.btnGuessOne.text == currentQuestion.answer){
+                    editor.apply{
+                        putString(Constants.USERNAME, username)
+                        putInt(Constants.HIGHSCORE, score)
+                        apply() //to end
+                    }
+                } else if (score > highScore) {
                     editor.apply{
                         putString(Constants.USERNAME, username)
                         putInt(Constants.HIGHSCORE, score)
@@ -238,28 +310,18 @@ class QuestionActivity : AppCompatActivity() {
                 }
             }
 
-            intent.putExtra("username", username)
             startActivity(intent)
             finish()
 
         }
 
 
-        Log.i("Score", "${score.toInt()}")
-
-
-
-
-
-
-
 
 
     }
 
-    fun updateUI(currentQuestion: Question){
+    fun updateUI(currentQuestion: Question, username: String){
 
-        //bind all question info to View values
         if(currentQuestion.id == 1){
             binding.ivQuestion.setImageResource(currentQuestion.icon)
         }else{

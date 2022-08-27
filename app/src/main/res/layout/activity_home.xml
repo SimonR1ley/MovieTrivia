@@ -27,22 +27,22 @@
             android:backgroundTint="@color/button"/>
 
         <Button
-            android:id="@+id/btn_quotes"
+            android:id="@+id/btn_hero"
             android:layout_width="250dp"
             android:layout_height="70dp"
             android:backgroundTint="@color/button"
             app:cornerRadius="15dp"
             android:layout_marginTop="20dp"
-            android:text="Characters"/>
+            android:text="Heros"/>
 
         <Button
-            android:id="@+id/btn_generalMovies"
+            android:id="@+id/btn_horror"
             android:layout_width="250dp"
             android:layout_height="70dp"
             android:backgroundTint="@color/button"
             app:cornerRadius="15dp"
             android:layout_marginTop="20dp"
-            android:text="General Movies"/>
+            android:text="Horrors"/>
 
         <Button
             android:id="@+id/settings"
@@ -51,7 +51,7 @@
             android:backgroundTint="@color/setting_btn"
             app:cornerRadius="10dp"
             android:layout_marginTop="20dp"
-            android:text="Scores"/>
+            android:text="Settings"/>
 
 
     </LinearLayout>

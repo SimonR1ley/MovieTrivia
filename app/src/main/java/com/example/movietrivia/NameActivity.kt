@@ -1,11 +1,13 @@
 package com.example.movietrivia
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.movietrivia.databinding.ActivityHomeBinding
 import com.example.movietrivia.databinding.ActivityNameBinding
+import com.example.movietrivia.models.Constants
 import com.google.android.material.snackbar.Snackbar
 
 class NameActivity : AppCompatActivity() {
@@ -20,6 +22,7 @@ class NameActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
+
 //        Example of getting access to my button for clicks
 
         binding.btnStart.setOnClickListener {
@@ -27,7 +30,29 @@ class NameActivity : AppCompatActivity() {
 
             val username = binding.etUsername.text
 
+            val sharedPref = getSharedPreferences("myPref", Context.MODE_PRIVATE)
+            val editor = sharedPref.edit()
+            val user = sharedPref.getString(Constants.USERNAME, "")
+
 //            Check if username input is empty
+
+
+            if(user.toString() !== ""){
+
+                val intent = Intent(this, HomeActivity::class.java)
+
+                intent.putExtra("username", user.toString())
+
+                startActivity(intent)
+
+                editor.apply{
+                    putString(Constants.USERNAME, username.toString())
+                    apply() //to end
+                }
+
+            }
+
+
 
         if(username.toString() == ""){
 
@@ -46,11 +71,15 @@ class NameActivity : AppCompatActivity() {
             val intent = Intent(this, HomeActivity::class.java)
 
             intent.putExtra("username", username.toString())
+
             startActivity(intent)
 
+            editor.apply{
+                putString(Constants.USERNAME, username.toString())
+                apply() //to end
+            }
+
         }
-
-
 
     }
 

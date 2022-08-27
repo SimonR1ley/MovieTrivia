@@ -24,12 +24,25 @@ class SettingActivity : AppCompatActivity() {
         val user = sharedPref.getString(Constants.USERNAME, "")
         val userHighScore = sharedPref.getInt(Constants.HIGHSCORE, 0)
 
+        //reset score
+        binding.btnReset.setOnClickListener {
+            editor.apply{
+                putString(Constants.USERNAME, "")
+                putInt(Constants.HIGHSCORE, 0)
+                apply() //to end
+            }
+            startActivity(intent)
+        }
+
         binding.tvUsername.text = user.toString()
+        binding.tvScore.text = "$userHighScore"
 
         binding.btnReturn.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
+
+//
 
     }
 }
