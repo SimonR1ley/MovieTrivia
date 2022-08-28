@@ -3,10 +3,7 @@ package com.example.movietrivia
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Debug
-import android.util.Log
 import com.example.movietrivia.databinding.ActivityHomeBinding
-import com.example.movietrivia.models.Question
 
 class HomeActivity : AppCompatActivity() {
 

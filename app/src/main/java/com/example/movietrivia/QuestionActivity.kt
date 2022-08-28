@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import androidx.cardview.widget.CardView
 import com.example.movietrivia.databinding.ActivityQuestionBinding
 import com.example.movietrivia.models.Constants
 import com.example.movietrivia.models.Constants.getAllDisneyQuestions

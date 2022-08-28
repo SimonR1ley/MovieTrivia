@@ -14,10 +14,10 @@
         android:theme="@style/Theme.MovieTrivia"
         tools:targetApi="31">
         <activity
-            android:name=".AboutActivity"
+            android:name="com.example.movietrivia.AboutActivity"
             android:exported="false" />
         <activity
-            android:name=".LoadingActivity"
+            android:name="com.example.movietrivia.LoadingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,22 +26,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SettingActivity"
+            android:name="com.example.movietrivia.SettingActivity"
             android:exported="false" />
         <activity
-            android:name=".NameActivity"
+            android:name="com.example.movietrivia.NameActivity"
             android:exported="false" />
         <activity
-            android:name=".ScoreActivity"
+            android:name="com.example.movietrivia.ScoreActivity"
             android:exported="false" />
         <activity
-            android:name=".QuestionActivity"
+            android:name="com.example.movietrivia.QuestionActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name="com.example.movietrivia.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.movietrivia.MainActivity"
             android:exported="false" />
     </application>
 

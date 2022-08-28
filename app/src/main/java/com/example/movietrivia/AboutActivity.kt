@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.movietrivia.databinding.ActivityAboutBinding
-import com.example.movietrivia.databinding.ActivityScoreBinding
 
 class AboutActivity : AppCompatActivity() {
 

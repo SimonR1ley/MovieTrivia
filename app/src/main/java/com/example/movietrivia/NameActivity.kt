@@ -5,7 +5,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.movietrivia.databinding.ActivityHomeBinding
 import com.example.movietrivia.databinding.ActivityNameBinding
 import com.example.movietrivia.models.Constants
 import com.google.android.material.snackbar.Snackbar
