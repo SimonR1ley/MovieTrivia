@@ -213,16 +213,16 @@ Distributed under the MIT License. See `LICENSE` for more information.\
 
 <!-- all resources that you used and Acknowledgements here -->
 
-[image1]: Images/about.jpg
-[image2]: Images/name.jpg
-[image3]: Images/category.jpg
-[image4]: Images/question.jpg
-[image5]: Images/score.jpg
-[image6]: Images/settings.jpg
-[image7]: Images/mockup1.jpg
-[image8]: Images/mockup2.jpg
-[image9]: Images/mockup3.jpg
-[image10]: Images/mockup4.jpg
-[image11]: Images/mockup5.jpg
-[image12]: Images/feature.jpg
-[image13]: Images/icon.jpg
+[image1]: Images/about.png
+[image2]: Images/name.png
+[image3]: Images/category.png
+[image4]: Images/question.png
+[image5]: Images/score.png
+[image6]: Images/settings.png
+[image7]: Images/mockup1.png
+[image8]: Images/mockup2.png
+[image9]: Images/mockup3.png
+[image10]: Images/mockup4.png
+[image11]: Images/mockup5.png
+[image12]: Images/feature.png
+[image13]: Images/icon.png
